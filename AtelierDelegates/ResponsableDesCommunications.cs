@@ -16,9 +16,9 @@ namespace AtelierDelegates
 
             bool continuer = true;
 
-            while(continuer)
+            while (continuer)
             {
-                President.Parle(imprimerConsole);
+                President.Parle(auditeurs);
             }
 
             Console.WriteLine("\n\n");

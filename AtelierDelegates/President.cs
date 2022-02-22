@@ -13,8 +13,10 @@ namespace AtelierDelegates
             Console.WriteLine("\n\n=== Monsieur le président, le monde vous écoute. ===");
             string s = Console.ReadLine();
             Console.WriteLine(new string('-', ConstantesDeConsole.LARGEUR_CONSOLE));
+
             // Invoquer les délégués
             micro.Invoke(s);
+
             Console.WriteLine("\n\n" + new string('-', ConstantesDeConsole.LARGEUR_CONSOLE));
         }
     }
