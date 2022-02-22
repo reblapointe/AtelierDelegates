@@ -21,7 +21,6 @@ namespace AtelierDelegates
             Action<string> deVinci = DeVinci.EcrireDeDroiteAGauche;
             Action<string> conspirationniste = (m) => Console.WriteLine(Conspirationniste.Ameliorer(m));
 
-
             Action<string> auditeurs = archiviste + alarmiste + journaliste + deVinci + beeper + conspirationniste + Continuer;
 
             int messages = 0;
@@ -29,7 +28,7 @@ namespace AtelierDelegates
             {
                 President.Parle(auditeurs);
                 if (++messages == 3)
-                    auditeurs -= conspirationniste;
+                    auditeurs -= alarmiste;
             }
 
             Console.WriteLine("\n\n");
