@@ -18,10 +18,10 @@ namespace AtelierDelegates
             Action<string> alarmiste = new Alarmiste().Crier;
             Action<string> beeper = (m) => InterpreteurMalVoyant.Beep();
             Action<string> journaliste = (m) => Journaliste.MettreALaUne("Le président", m);
-            Action<string> deVinci = DeVinci.EcrireDeDroiteAGauche;
             Action<string> conspirationniste = (m) => Console.WriteLine(Conspirationniste.Ameliorer(m));
+            Action<string> deVinci = DeVinci.EcrireDeDroiteAGauche;
 
-            Action<string> auditeurs = archiviste + alarmiste + journaliste + deVinci + beeper + conspirationniste + Continuer;
+            Action<string> auditeurs = archiviste + alarmiste + beeper + journaliste + conspirationniste + deVinci + Continuer;
 
             int messages = 0;
             while(continuer)
