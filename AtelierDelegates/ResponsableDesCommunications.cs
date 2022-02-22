@@ -33,6 +33,5 @@ namespace AtelierDelegates
 
             Console.WriteLine("\n\n");
         }
-
     }
 }
