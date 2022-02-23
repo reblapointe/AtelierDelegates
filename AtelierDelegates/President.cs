@@ -8,7 +8,7 @@ namespace AtelierDelegates
 {
     public sealed class President
     {
-        public static void Parle(Action<string> micro)
+        public static void Parler(Action<string> micro)
         {
             Console.WriteLine("\n\n=== Monsieur le président, le monde vous écoute. ===");
             string s = Console.ReadLine();

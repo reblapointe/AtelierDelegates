@@ -11,14 +11,14 @@ namespace AtelierDelegates
             // Créer les délégués
             Action<string> imprimerConsole = Console.WriteLine;
 
-            // Rassembler les délégués
+            // Rassembler les délégués dans auditeurs
             Action<string> auditeurs = imprimerConsole;
 
             bool continuer = true;
 
             while (continuer)
             {
-                President.Parle(auditeurs);
+                President.Parler(auditeurs);
             }
 
             Console.WriteLine("\n\n");
