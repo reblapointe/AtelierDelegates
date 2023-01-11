@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using static System.Net.WebRequestMethods;
 
 
 // PAS TOUCHE, CE N'EST PAS VOTRE CODE!
@@ -14,7 +15,7 @@ namespace AtelierDelegates
 
         public Archiviste()
         {
-            fichier = "log.txt";
+            fichier = $"../../../../log.txt";
         }
 
         // L'archiviste reçoit un message (string), 
@@ -24,11 +25,13 @@ namespace AtelierDelegates
         {
             try
             {
-                File.AppendAllText(fichier, $"({DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")}) {message}\n");
+                using StreamWriter sw = System.IO.File.AppendText(fichier);
+                sw.WriteLine($"({DateTime.Now:dd/MM/yyyy HH:mm:ss}) {message}\n");
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Console.Error.Write(e);
                 return false;
             }
         }
