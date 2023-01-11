@@ -4,7 +4,7 @@ namespace AtelierDelegates
 {
     class ResponsableDesCommunications
     {
-        public static void Main(string[] args)
+        public static void Main(string[] _)
         {
             bool continuer = true;
 
