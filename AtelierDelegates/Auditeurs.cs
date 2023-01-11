@@ -16,6 +16,10 @@ namespace AtelierDelegates
         {
             fichier = "log.txt";
         }
+
+        // L'archiviste reçoit un message (string), 
+        // l'écrit dans un fichier et retourne un booléen si l'écriture est un succès
+        // Particularité : un paramètre, une sortie.
         public bool Archiver(string message)
         {
             try
@@ -32,6 +36,8 @@ namespace AtelierDelegates
 
     public sealed class Alarmiste
     {
+        // L'alarmiste reçoit un message (string) et l'écrit à la console en rouge.
+        // Particularité : Un paramètre, pas de sortie
         public void Crier(string message)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -43,6 +49,8 @@ namespace AtelierDelegates
 
     public sealed class InterpreteurMalVoyant
     {
+        // L'interpréteur pour mal voyant fait un beep.
+        // Particularité : Il n'a ni paramètres ni retour.
         public static void Beep()
         {
             Console.Beep();
@@ -51,6 +59,9 @@ namespace AtelierDelegates
 
     public sealed class Journaliste
     {
+        // Le journaliste a deux paramètres : le nom de la personne qui parle et le message
+        // Il met le message comme titre de la console.
+        // Particularité : Il y a deux paramètres
         public static void MettreALaUne(string nom, string message)
         {
             Console.Title = $"{nom} a dit \"{message}\"";
@@ -61,6 +72,8 @@ namespace AtelierDelegates
     {
         static readonly Random rand = new Random();
 
+        // Le conspirationniste reçoit un message, le modifie et retourne un nouveau message
+        // Particularité : Le nouveau message est retourné, rien n'est écrit à la console.
         public static string Ameliorer(string m)
         {
             string[] mots = m.Split(" ");
@@ -74,12 +87,14 @@ namespace AtelierDelegates
                     sortie.Append(mot);
                 sortie.Append(" ");
             }
-            return sortie.ToString().Replace("président", "lézard").Replace("reine", "lézarde");
+            return sortie.ToString().Replace("président", "lézard").Replace("reine", "lézarde").Replace("roi", "lézard");
         }
     }
 
     public sealed class DeVinci
     {
+        // DeVinci reçoit un message et l'écrit de droite à gauche dans la console
+        // Particularité : C'est une méthode statique
         public static void EcrireDeDroiteAGauche(string message)
         {
             int nbLignes = message.Length / ConstantesDeConsole.LARGEUR_CONSOLE;
