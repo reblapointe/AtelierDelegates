@@ -15,7 +15,7 @@ namespace AtelierDelegates
             Console.WriteLine(new string('-', ConstantesDeConsole.LARGEUR_CONSOLE));
 
             // Invoquer les délégués
-            micro.Invoke(s);
+            micro?.Invoke(s);
 
             Console.WriteLine("\n\n" + new string('-', ConstantesDeConsole.LARGEUR_CONSOLE));
         }
