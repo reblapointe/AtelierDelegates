@@ -9,12 +9,12 @@ namespace AtelierDelegates
             bool continuer = true;
 
             Action<string> archiviste = (m) => new Archiviste().Archiver(m);
-            Action<string> alarmiste = new Alarmiste().Crier;
+            Action<string> alarmiste = Alarmiste.Crier;
             Action<string> beeper = (m) => InterpreteurMalVoyant.Beep();
             Action<string> journaliste = (m) => Journaliste.MettreALaUne("Le président", m);
             Action<string> conspirationniste = (m) => Console.WriteLine(Conspirationniste.Ameliorer(m));
             Action<string> deVinci = DeVinci.EcrireDeDroiteAGauche;
-            Action<string> phraseDeFin = (m) => continuer = !(m.Trim().ToUpper() == "LA TERRE AUX TERRIENS!");
+            Action<string> phraseDeFin = (m) => continuer = !(m.Trim().Equals("LA TERRE AUX TERRIENS!", StringComparison.CurrentCultureIgnoreCase));
 
             Action<string> auditeurs = archiviste + alarmiste + beeper + journaliste + conspirationniste + deVinci + phraseDeFin;
 
