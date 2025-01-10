@@ -41,7 +41,7 @@ namespace AtelierDelegates
     {
         // L'alarmiste reçoit un message (string) et l'écrit à la console en rouge.
         // Particularité : Un paramètre, pas de sortie
-        public void Crier(string message)
+        public static void Crier(string message)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.BackgroundColor = ConsoleColor.Red;
@@ -73,14 +73,14 @@ namespace AtelierDelegates
 
     public sealed class Conspirationniste
     {
-        static readonly Random rand = new Random();
+        static readonly Random rand = new ();
 
         // Le conspirationniste reçoit un message, le modifie et retourne un nouveau message
         // Particularité : Le nouveau message est retourné, rien n'est écrit à la console.
         public static string Ameliorer(string m)
         {
             string[] mots = m.Split(" ");
-            StringBuilder sortie = new StringBuilder();
+            StringBuilder sortie = new ();
 
             foreach (string mot in mots)
             {
@@ -88,7 +88,7 @@ namespace AtelierDelegates
                     sortie.Append($"\"{mot}\"");
                 else
                     sortie.Append(mot);
-                sortie.Append(" ");
+                sortie.Append(' ');
             }
             return sortie.ToString().Replace("président", "lézard").Replace("reine", "lézarde").Replace("roi", "lézard");
         }
