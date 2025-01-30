@@ -15,7 +15,7 @@ namespace AtelierDelegates
 
         public Archiviste()
         {
-            fichier = $"../../../../log.txt";
+            fichier = $"../../../../../log.txt";
         }
 
         // L'archiviste reçoit un message (string), 
