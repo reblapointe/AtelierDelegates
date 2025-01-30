@@ -11,11 +11,13 @@ namespace AtelierDelegates
 {
     public sealed class Archiviste
     {
-        private readonly string fichier;
+        private readonly string chemin;
 
         public Archiviste()
         {
-            fichier = $"../../../../log.txt";
+            string fileName = "log.txt"; // Nom du fichier
+            string projectRoot = Directory.GetCurrentDirectory(); // Obtient le répertoire courant
+            chemin = Path.Combine(projectRoot, fileName); // Construit le chemin du fichier
         }
 
         // L'archiviste reçoit un message (string), 
@@ -25,7 +27,7 @@ namespace AtelierDelegates
         {
             try
             {
-                using StreamWriter sw = System.IO.File.AppendText(fichier);
+                using StreamWriter sw = System.IO.File.AppendText(chemin);
                 sw.WriteLine($"({DateTime.Now:dd/MM/yyyy HH:mm:ss}) {message}\n");
                 return true;
             }
@@ -73,14 +75,14 @@ namespace AtelierDelegates
 
     public sealed class Conspirationniste
     {
-        static readonly Random rand = new ();
+        static readonly Random rand = new();
 
         // Le conspirationniste reçoit un message, le modifie et retourne un nouveau message
         // Particularité : Le nouveau message est retourné, rien n'est écrit à la console.
         public static string Ameliorer(string m)
         {
             string[] mots = m.Split(" ");
-            StringBuilder sortie = new ();
+            StringBuilder sortie = new();
 
             foreach (string mot in mots)
             {
