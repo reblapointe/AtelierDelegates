@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AtelierDelegates
 {
     class ResponsableDesCommunications
     {
+
         public static void Main(string[] _)
         {
             bool continuer = true;
@@ -13,6 +16,7 @@ namespace AtelierDelegates
 
             // Combiner tous les délégués en un seul
             Action<string> auditeurs = console;
+
 
             // Faire parler le président
             while (continuer)
