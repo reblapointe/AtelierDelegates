@@ -11,13 +11,11 @@ namespace AtelierDelegates
 {
     public sealed class Archiviste
     {
-        private readonly string chemin;
+        private readonly string fichier;
 
         public Archiviste()
         {
-            string fileName = "log.txt"; // Nom du fichier
-            string projectRoot = Directory.GetCurrentDirectory(); // Obtient le répertoire courant
-            chemin = Path.Combine(projectRoot, fileName); // Construit le chemin du fichier
+            fichier = $"../../../../log.txt";
         }
 
         // L'archiviste reçoit un message (string), 
@@ -27,7 +25,7 @@ namespace AtelierDelegates
         {
             try
             {
-                using StreamWriter sw = System.IO.File.AppendText(chemin);
+                using StreamWriter sw = System.IO.File.AppendText(fichier);
                 sw.WriteLine($"({DateTime.Now:dd/MM/yyyy HH:mm:ss}) {message}\n");
                 return true;
             }
